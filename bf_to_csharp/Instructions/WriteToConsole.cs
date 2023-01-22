@@ -9,5 +9,4 @@
 
         public Location Location { get; }
     }
-
 }

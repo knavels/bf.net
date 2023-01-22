@@ -1,6 +1,6 @@
 ﻿namespace bf
 {
-    class ReadFromConsole : IInstruction
+    internal class ReadFromConsole : IInstruction
     {
         public ReadFromConsole(Location location)
         {
@@ -9,5 +9,4 @@
 
         public Location Location { get; }
     }
-
 }

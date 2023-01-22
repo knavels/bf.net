@@ -1,6 +1,6 @@
 ﻿namespace bf
 {
-    class Decrease : IInstruction
+    internal class Decrease : IInstruction
     {
         public Decrease(Location location)
         {
@@ -9,5 +9,4 @@
 
         public Location Location { get; }
     }
-
 }

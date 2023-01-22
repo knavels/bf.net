@@ -5,9 +5,9 @@ using System.Linq;
 
 namespace bf
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             if (!args.Any())
             {
@@ -20,8 +20,7 @@ namespace bf
             var projectFolder = string.Empty;
             var releaseMode = true;
 
-            for (int argumentNumber = 0; argumentNumber < args.Length; argumentNumber++)
-            {
+            for (var argumentNumber = 0; argumentNumber < args.Length; argumentNumber++)
                 if (args[argumentNumber] == "/o")
                 {
                     argumentNumber++;
@@ -41,11 +40,10 @@ namespace bf
                 {
                     projectFolder = args[argumentNumber];
                 }
-            }
 
 
             var sourceCodeFile = Path.Combine(projectFolder, "main.bf");
-            
+
 
             if (!File.Exists(sourceCodeFile))
             {
@@ -83,11 +81,10 @@ namespace bf
             rootBlock = releaseMode switch
             {
                 true => Lower(optimisedCode),
-                false => Lower(rootBlock),
+                false => Lower(rootBlock)
             };
 
             ILGenerator.Emit(projectName, fileToCreate, rootBlock, releaseMode, references, sourceCodeFile);
-
         }
 
         private static Block Lower(Block originalBlock)
@@ -125,6 +122,7 @@ namespace bf
                         newBlock.Add(new Jump(instruction.Location, $"topOfLoop{labelNumber}"));
                         newBlock.Add(new Label(instruction.Location, $"endOfLoop{labelNumber}"));
                     }
+
                     newBlock.Add(instruction);
                 }
             }
@@ -133,28 +131,19 @@ namespace bf
         private static void CheckForEmptyLoops(Block rootBlock, List<Error> errors)
         {
             foreach (var loop in rootBlock.Instructions.OfType<Block>())
-            {
                 if (loop.Instructions.Any())
-                {
                     CheckForEmptyLoops(loop, errors);
-                }
                 else
-                {
                     errors.Add(new Error(loop.Location, "Empty loop - either will do nothing or loop infinitely"));
-                }
-            }
         }
 
         private static void DisplayErrors(List<Error> errors)
         {
             Console.ForegroundColor = ConsoleColor.Red;
             foreach (var error in errors.OrderBy(e => e.Location))
-            {
                 Console.WriteLine($"Error at position {error.Location.StartColumn} - {error.Description}");
-            }
             Console.ResetColor();
         }
-
 
 
         private static Block ParseSourceCode(string sourceCode, List<Error> errors)
@@ -191,17 +180,12 @@ namespace bf
                         break;
                     case ']':
                         if (currentBlock.Parent is null)
-                        {
                             errors.Add(new Error(new Location(location), "] does not have a matching ["));
-                        }
                         else
-                        {
                             currentBlock = currentBlock.Parent;
-                        }
-                        break;
-                    default:
                         break;
                 }
+
                 location++;
             }
 
@@ -213,8 +197,5 @@ namespace bf
 
             return rootBlock;
         }
-
-
     }
-
 }

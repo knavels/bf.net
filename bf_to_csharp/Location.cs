@@ -1,12 +1,12 @@
 ﻿namespace bf
 {
-    class Location
+    internal class Location
     {
-        public int StartColumn { get; }
-
         public Location(int location)
         {
             StartColumn = location;
         }
+
+        public int StartColumn { get; }
     }
 }

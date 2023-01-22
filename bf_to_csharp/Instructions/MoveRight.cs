@@ -1,8 +1,6 @@
-﻿using System.Text;
-
-namespace bf
+﻿namespace bf
 {
-    class MoveRight : IInstruction
+    internal class MoveRight : IInstruction
     {
         public MoveRight(Location location)
         {
@@ -11,5 +9,4 @@ namespace bf
 
         public Location Location { get; }
     }
-
 }

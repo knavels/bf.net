@@ -1,6 +1,6 @@
 ﻿namespace bf
 {
-    class Error
+    internal class Error
     {
         public Error(Location location, string description)
         {
@@ -11,5 +11,4 @@
         public Location Location { get; }
         public string Description { get; }
     }
-
 }

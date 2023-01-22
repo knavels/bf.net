@@ -1,6 +1,6 @@
 ﻿namespace bf
 {
-    class MoveLeft : IInstruction
+    internal class MoveLeft : IInstruction
     {
         public MoveLeft(Location location)
         {
@@ -9,5 +9,4 @@
 
         public Location Location { get; }
     }
-
 }

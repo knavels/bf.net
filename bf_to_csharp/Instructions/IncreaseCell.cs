@@ -1,8 +1,6 @@
-﻿using System.Text;
-
-namespace bf
+﻿namespace bf
 {
-    class IncreaseCell : IInstruction
+    internal class IncreaseCell : IInstruction
     {
         public IncreaseCell(Location location, int quantity)
         {
@@ -12,7 +10,5 @@ namespace bf
 
         public int Quantity { get; }
         public Location Location { get; }
-
     }
-
 }

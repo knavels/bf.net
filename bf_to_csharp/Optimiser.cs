@@ -1,6 +1,6 @@
 ﻿namespace bf
 {
-    class Optimiser
+    internal class Optimiser
     {
         public static Block Optimise(Block originalBlock, Block parentBlock)
         {
@@ -8,7 +8,6 @@
 
             var previous = default(IInstruction);
             foreach (var instruction in originalBlock.Instructions)
-            {
                 switch (instruction)
                 {
                     case Block block:
@@ -39,18 +38,14 @@
                     case Increase increase:
                         previous = CombineIncreases(newBlock, previous, +1);
                         break;
-
-                    default:
-                        break;
                 }
-            }
 
             if (previous is object && InstructionDoesSomething(previous)) newBlock.Add(previous);
 
             return newBlock;
         }
 
-        private static bool InstructionDoesSomething(IInstruction  instruction)
+        private static bool InstructionDoesSomething(IInstruction instruction)
         {
             if (instruction is Move m && m.Quantity == 0) return false;
             if (instruction is IncreaseCell c && c.Quantity == 0) return false;
@@ -86,6 +81,5 @@
 
             return previous;
         }
-
     }
 }

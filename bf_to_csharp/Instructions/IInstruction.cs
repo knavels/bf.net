@@ -1,8 +1,7 @@
 ﻿namespace bf
 {
-    interface IInstruction
+    internal interface IInstruction
     {
         public Location Location { get; }
     }
-
 }

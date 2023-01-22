@@ -1,6 +1,6 @@
 ﻿namespace bf
 {
-    class Label : IInstruction
+    internal class Label : IInstruction
     {
         public Label(Location location, string labelName)
         {
@@ -10,8 +10,5 @@
 
         public string LabelName { get; }
         public Location Location { get; }
-
-
     }
-
 }

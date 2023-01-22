@@ -1,8 +1,6 @@
-﻿using System.Text;
-
-namespace bf
+﻿namespace bf
 {
-    class Move : IInstruction
+    internal class Move : IInstruction
     {
         public Move(Location location, int quantity)
         {
@@ -12,7 +10,5 @@ namespace bf
 
         public int Quantity { get; }
         public Location Location { get; }
-
     }
-
 }
