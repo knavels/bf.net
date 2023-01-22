@@ -1,15 +1,14 @@
-﻿namespace bf
+﻿namespace bf.Instructions;
+
+internal class Jump : IInstruction
 {
-    internal class Jump : IInstruction
+    public Jump(Location location, string targetLabelName)
     {
-        public Jump(Location location, string targetLabelName)
-        {
-            Location = location;
-            TargetLabelName = targetLabelName;
-        }
-
-        public string TargetLabelName { get; }
-
-        public Location Location { get; }
+        Location = location;
+        TargetLabelName = targetLabelName;
     }
+
+    public string TargetLabelName { get; }
+
+    public Location Location { get; }
 }

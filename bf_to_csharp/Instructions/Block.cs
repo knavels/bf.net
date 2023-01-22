@@ -1,26 +1,25 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace bf
+namespace bf.Instructions;
+
+internal class Block : IInstruction
 {
-    internal class Block : IInstruction
+    private readonly List<IInstruction> _instructions = new();
+
+    public Block(Location location, Block parent = null)
     {
-        private readonly List<IInstruction> _instructions = new List<IInstruction>();
+        Parent = parent;
+        Location = location;
+    }
 
-        public Block(Location location, Block parent = null)
-        {
-            Parent = parent;
-            Location = location;
-        }
+    public Block Parent { get; }
 
-        public Block Parent { get; internal set; }
+    public ReadOnlyCollection<IInstruction> Instructions => _instructions.AsReadOnly();
+    public Location Location { get; }
 
-        public ReadOnlyCollection<IInstruction> Instructions => _instructions.AsReadOnly();
-        public Location Location { get; }
-
-        public void Add(IInstruction instruction)
-        {
-            _instructions.Add(instruction);
-        }
+    public void Add(IInstruction instruction)
+    {
+        _instructions.Add(instruction);
     }
 }

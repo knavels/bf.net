@@ -1,14 +1,13 @@
-﻿namespace bf
-{
-    internal class Move : IInstruction
-    {
-        public Move(Location location, int quantity)
-        {
-            Location = location;
-            Quantity = quantity;
-        }
+﻿namespace bf.Instructions;
 
-        public int Quantity { get; }
-        public Location Location { get; }
+internal class Move : IInstruction
+{
+    public Move(Location location, int quantity)
+    {
+        Location = location;
+        Quantity = quantity;
     }
+
+    public int Quantity { get; }
+    public Location Location { get; }
 }

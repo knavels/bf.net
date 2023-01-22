@@ -1,14 +1,13 @@
-﻿namespace bf
-{
-    internal class Label : IInstruction
-    {
-        public Label(Location location, string labelName)
-        {
-            Location = location;
-            LabelName = labelName;
-        }
+﻿namespace bf.Instructions;
 
-        public string LabelName { get; }
-        public Location Location { get; }
+internal class Label : IInstruction
+{
+    public Label(Location location, string labelName)
+    {
+        Location = location;
+        LabelName = labelName;
     }
+
+    public string LabelName { get; }
+    public Location Location { get; }
 }

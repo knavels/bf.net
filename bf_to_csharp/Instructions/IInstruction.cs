@@ -1,7 +1,6 @@
-﻿namespace bf
+﻿namespace bf.Instructions;
+
+internal interface IInstruction
 {
-    internal interface IInstruction
-    {
-        public Location Location { get; }
-    }
+    public Location Location { get; }
 }

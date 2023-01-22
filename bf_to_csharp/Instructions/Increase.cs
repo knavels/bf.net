@@ -1,12 +1,11 @@
-﻿namespace bf
-{
-    internal class Increase : IInstruction
-    {
-        public Increase(Location location)
-        {
-            Location = location;
-        }
+﻿namespace bf.Instructions;
 
-        public Location Location { get; }
+internal class Increase : IInstruction
+{
+    public Increase(Location location)
+    {
+        Location = location;
     }
+
+    public Location Location { get; }
 }

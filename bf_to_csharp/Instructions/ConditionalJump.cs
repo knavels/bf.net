@@ -1,15 +1,14 @@
-﻿namespace bf
+﻿namespace bf.Instructions;
+
+internal class ConditionalJump : IInstruction
 {
-    internal class ConditionalJump : IInstruction
+    public ConditionalJump(Location location, string targetLabelName)
     {
-        public ConditionalJump(Location location, string targetLabelName)
-        {
-            Location = location;
-            TargetLabelName = targetLabelName;
-        }
-
-        public string TargetLabelName { get; }
-
-        public Location Location { get; }
+        Location = location;
+        TargetLabelName = targetLabelName;
     }
+
+    public string TargetLabelName { get; }
+
+    public Location Location { get; }
 }

@@ -2,16 +2,11 @@
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-        <OutputPath>C:\personal\bf\bin</OutputPath>
+        <TargetFramework>net7.0</TargetFramework>
+        <LangVersion>11</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="Mono.Cecil" Version="0.11.2"/>
     </ItemGroup>
-
-
 </Project>
